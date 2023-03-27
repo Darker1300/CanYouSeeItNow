@@ -34,7 +34,7 @@ public class MagnifyGlass : MonoBehaviour
 		magnifyCamera = camera.AddComponent<Camera>();   
 		magnifyCamera.pixelRect = new Rect(MGOX, MG0Y, MGWidth, MGHeight);
 		magnifyCamera.transform.position = new Vector3(0,0,0);
-		if(Camera.main.isOrthoGraphic)
+		if(Camera.main.orthographic)
 		{
 			magnifyCamera.orthographic = true;
 			magnifyCamera.orthographicSize = Camera.main.orthographicSize / 5.0f;//+ 1.0f;
@@ -101,7 +101,7 @@ public class MagnifyGlass : MonoBehaviour
 	public Vector3 getWorldPosition(Vector3 screenPos)
 	{
 		Vector3 worldPos;
-		if(Camera.main.isOrthoGraphic)
+		if(Camera.main.orthographic)
 		{
 			worldPos = Camera.main.ScreenToWorldPoint (screenPos);
 			worldPos.z = Camera.main.transform.position.z;
